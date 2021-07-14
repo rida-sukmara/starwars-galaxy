@@ -10,14 +10,19 @@ import {
   Description,
 } from './PlanetCard.styles';
 
-const PlanetCard = React.forwardRef<any, Planet>(({
+type PlanetProps = {
+  id: number;
+}
+
+const PlanetCard = React.forwardRef<any, Planet & PlanetProps>(({
+  id,
   name,
   diameter,
   gravity,
   terrain,
   created,
-}: Planet, ref) => (
-  <Container href="#" ref={ref}>
+}: Planet & PlanetProps, ref) => (
+  <Container href={`/planets/${id}`} ref={ref}>
     <Header>
       <Title>{name}</Title>
       <Diameter>{`Diameter: ${diameter}`}</Diameter>
