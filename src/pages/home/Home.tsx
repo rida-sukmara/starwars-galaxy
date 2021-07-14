@@ -11,6 +11,7 @@ import {
 } from './Home.styles';
 
 import PlanetCard from '../../components/planet/PlanetCard';
+import { Title } from '../../components/planet';
 
 function Home() {
   const planetState = useSelector((_state: AppStore) => _state.planet);
@@ -48,10 +49,12 @@ function Home() {
         <MenuItem href="/wishlist">Wishlist</MenuItem>
       </Nav>
       <Main>
+        <Title>Planet List:</Title>
         {planets.map((_planet, index) => {
           if (planets.length === index + 1) {
             return (
               <PlanetCard
+                wishlist={false}
                 id={index + 1}
                 {..._planet}
                 ref={lastPage}
@@ -61,6 +64,7 @@ function Home() {
           }
           return (
             <PlanetCard
+              wishlist={false}
               id={index + 1}
               {..._planet}
               key={_planet.name}

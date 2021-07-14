@@ -12,6 +12,7 @@ import {
 
 type PlanetProps = {
   id: number;
+  wishlist: boolean;
 }
 
 const PlanetCard = React.forwardRef<any, Planet & PlanetProps>(({
@@ -21,8 +22,9 @@ const PlanetCard = React.forwardRef<any, Planet & PlanetProps>(({
   gravity,
   terrain,
   created,
+  wishlist,
 }: Planet & PlanetProps, ref) => (
-  <Container href={`/planets/${id}`} ref={ref}>
+  <Container href={wishlist ? '#' : `/planets/${id}`} ref={ref}>
     <Header>
       <Title>{name}</Title>
       <Diameter>{`Diameter: ${diameter}`}</Diameter>
