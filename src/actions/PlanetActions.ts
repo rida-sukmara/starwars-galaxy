@@ -19,12 +19,12 @@ export const ClearPlanet = () => (dispatch: Dispatch<PlanetDispatchTypes>) => {
   dispatch({ type: PLANET_INIT });
 };
 
-export const GetPlanet = (uri?: string, name: string = 'a') => async (
+export const GetPlanet = (uri?: string) => async (
   dispatch: Dispatch<PlanetDispatchTypes>,
 ) => {
   try {
     dispatch({ type: PLANET_LOADING });
-    const endpoint = uri || `${BASE_URI}/planets/?page=1&search=${name}`;
+    const endpoint = uri || `${BASE_URI}/planets?page=1`;
     if (!uri) {
       dispatch({ type: PLANET_INIT });
     }

@@ -17,9 +17,9 @@ function Home() {
   const planetState = useSelector((_state: AppStore) => _state.planet);
   const { loading, planets, meta } = planetState;
   const dispatch = useDispatch();
-  const getPlanets = (uri?: string, _keyword: string = '') => {
+  const getPlanets = (uri?: string) => {
     if (!loading) {
-      dispatch(GetPlanet(uri, _keyword));
+      dispatch(GetPlanet(uri));
     }
   };
   const lastPage = useRef<HTMLDivElement>();
